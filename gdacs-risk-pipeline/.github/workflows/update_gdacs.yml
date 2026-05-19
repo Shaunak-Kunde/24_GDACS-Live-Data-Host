@@ -1,0 +1,38 @@
+name: Refresh GDACS Feed
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+
+      - name: Download Latest GDACS Feed
+        run: |
+          curl -L -o data/gdacs.geojson https://www.gdacs.org/xml/gdacs.geojson
+
+      - name: Run Disaster Split Script
+        run: |
+          python scripts/gdacs_disaster_type_split.py
+
+      - name: Commit Changes
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+
+          git add .
+
+          git commit -m "Auto refresh GDACS disaster feeds" || echo "No changes"
+
+          git push
