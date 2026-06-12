@@ -1,0 +1,23 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "eventid": "TEST_VOLCANO_001",
+        "eventtype": "VO",
+        "name": "Mumbai Test Volcano",
+        "severity": "Green",
+        "country": "India",
+        "alertlevel": "Green"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8777,
+          19.0760
+        ]
+      }
+    }
+  ]
+}
