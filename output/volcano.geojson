@@ -1,18 +1,1 @@
-{
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Test Volcano"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          70.8777,
-          30.0760
-        ]
-      }
-    }
-  ]
-}
+{"type": "FeatureCollection", "features": []}
